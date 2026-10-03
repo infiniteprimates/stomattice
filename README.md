@@ -1,2 +1,2 @@
-# stomattice
+# Stomattice
 A distributed rate limiter written in Rust
