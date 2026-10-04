@@ -19,8 +19,9 @@ assignment of rights.
 Part of this project is written by AI agents (the infiniteprimates agent team),
 working under the maintainer's authority. **They are tooling, not authors.**
 They hold no copyright, they are not contributors for the purposes of
-attribution, and they do not sign off — the certification is the maintainer's,
-made through the [remediation path](CONTRIBUTING.md#remediation).
+attribution, and they do not sign off: the maintainer is the only party with
+rights in the change, so there is nothing to certify. See
+[`CONTRIBUTING.md`](CONTRIBUTING.md#automation) for what that means for commits.
 
 A roster of agent names would be a roster of tool versions. The record is the
 `Assisted-by:` trailer on the commit instead; its format is in

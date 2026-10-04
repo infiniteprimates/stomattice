@@ -39,7 +39,8 @@ cargo xtask check
 ```
 
 That is local CI parity: `fmt`, `clippy -D warnings`, tests, `cargo deny`, the
-MSRV check, and the dependency-direction check.
+MSRV build, and the dependency-direction check. CI is expected to invoke this
+same command rather than re-list the steps, so the two cannot drift apart.
 
 ## Sign off your commits (DCO)
 
@@ -117,8 +118,13 @@ working under the maintainer's authority. They are tooling, not authors — see
 are made:
 
 - **Agents never add `Signed-off-by`.** The sign-off is a first-person legal
-  certification and a non-person cannot make one. Every agent-authored change is
-  certified by a human — the maintainer — through the remediation path below.
+  certification and a non-person cannot make one. The DCO certifies a
+  contributor's right to submit the work; agents are tooling, they hold no
+  copyright, and the maintainer is the only party with rights in the change — so
+  an agent commit contains nothing for anyone to certify. DCO2 acts on exactly
+  that: it reports `Skipped: sign-off not required in bot commit` and passes a
+  bot-only pull request. [Remediation](#remediation) below is the fallback if
+  that ever changes.
 - **Agent commits carry an `Assisted-by:` trailer** naming the agent, instead:
 
   ```text
@@ -146,6 +152,9 @@ A **remediation commit** retroactively adds a missing sign-off. It is a new
 commit, so history is not rewritten and no one's work is disturbed. Both forms
 are enabled in [`.github/dco.yml`](.github/dco.yml).
 
+It is a fallback rather than a routine step: DCO2 skips bot-authored commits, so
+an agent-authored branch normally passes the check without one.
+
 ### Individual
 
 Authored by the same person as the commits it covers:
@@ -161,8 +170,8 @@ Signed-off-by: Your Name <you@example.com>
 
 ### Third-party
 
-Authored by the maintainer on behalf of the failing commit's author. This is the
-normal path for agent-authored pull requests:
+Authored by the maintainer on behalf of the failing commit's author, certifying
+a contribution they hold the authority to certify:
 
 ```text
 Third-party DCO remediation commit for <author>
@@ -190,9 +199,10 @@ stale reviews on push. Approve **after** it lands, not before.
 - Open an issue first for anything bigger than a small fix. The maintainers can
   tell you whether it conflicts with the invariants above — that conversation is
   cheaper before the code than after it.
-- **One pull request, one concern.** Aim for roughly 400 lines of
-  non-generated diff, tests included. A PR that does two things gets reviewed as
-  neither.
+- **One pull request, one concern.** Aim for roughly 400 lines of *code* diff,
+  tests included; generated and vendored-verbatim files do not count against it.
+  A prose document is reviewed as a document and splits by document, not by
+  line. A PR that does two things gets reviewed as neither.
 - Anything touching the CRDT core or the wire format is reviewed by the
   architect as well as a second reviewer; see [Review](#review).
 - **Wire-format changes are breaking by default.** The format is versioned and
@@ -219,8 +229,9 @@ it holds, and which test would fail if it broke.
   first — the answer is usually a different data structure.
 - Comments explain *why*, not *what*. Where a decision was contested, cite the
   design-record section it came from.
-- New behavior needs a test that fails without it. Prefer a property test where
-  the property is the point — the merge laws are.
+- New behavior needs a test that fails without it. Where the property is itself
+  the thing being tested — the merge laws, for instance — prefer a property test
+  to an example-based one.
 
 ## Maintainers
 

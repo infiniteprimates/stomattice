@@ -3,10 +3,11 @@
 # unchanged.
 #
 # Remediation commits retroactively add a missing `Signed-off-by` without
-# rewriting history, which is what lets an agent-authored branch be certified by
-# a human: agents never sign off (a non-person cannot make a first-person
-# certification), so the maintainer authors a third-party remediation commit on
-# the branch and signs it. See CONTRIBUTING.md -> Remediation.
+# rewriting history. They are a fallback: DCO2 skips bot-authored commits
+# ("sign-off not required in bot commit"), so an agent-authored branch normally
+# needs no remediation at all — agents never sign off (a non-person cannot make
+# a first-person certification) and there is nothing in their commits to
+# certify. See CONTRIBUTING.md -> Remediation.
 #
 # `thirdParty` requires `individual` to be enabled as well.
 #
