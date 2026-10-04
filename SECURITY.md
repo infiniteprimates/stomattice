@@ -51,7 +51,7 @@ section changes with it.
 
 ## Threat model
 
-Not written yet. It lands alongside the design record's failure-mode work and
-will be referenced here. Until then, read §11 of
-[`docs/design/architecture.md`](docs/design/architecture.md) as design intent
-rather than as assurance.
+Not written yet. It lands with the first code — there is no threat model worth
+publishing before there is a system to model. Until then, treat the invariants
+in [`CONTRIBUTING.md`](CONTRIBUTING.md) as design intent rather than as
+assurance.

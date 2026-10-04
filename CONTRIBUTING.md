@@ -25,9 +25,9 @@ needs a strong argument, and the argument belongs in the pull request.
    on transport; transport does not depend on the API layer. The check is part
    of `cargo xtask check`, so a violation fails the build rather than a review.
 
-The reasoning behind these — including the four correctness bugs they come from,
-and the failure bound each one protects — is in
-[`docs/design/architecture.md`](docs/design/architecture.md).
+Each of these comes from a specific correctness bug and protects a specific
+failure bound. That reasoning is not published yet; treat these as the rules of
+the codebase, and expect the justification to land with the code.
 
 ## Getting started
 

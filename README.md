@@ -25,16 +25,11 @@ per-descriptor fields rather than globals.
 
 ## Design
 
-The design of record is [`docs/design/architecture.md`](docs/design/architecture.md).
-It covers scope and non-goals, the CRDT state model and its merge laws, the
-decision hot path, key ownership and consistent hashing, failure modes with
-their bounds, and the questions that are still open.
-
-Where the design record and this README disagree, the design record wins.
-
-The record is a design under construction, not a specification. Its §13 lists
-what it has not answered — including whether outbound conditioning needs the
-CRDT core at all, which is a scope question and still open.
+The design is not published yet. It is being settled alongside the
+implementation, and its shape is still moving — a record published now would read
+as a commitment, and every later change would become a correction rather than a
+decision. Design decisions land in this repository with the code that depends on
+them.
 
 ## Contributing
 
