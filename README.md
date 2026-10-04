@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/stomattice-logo.svg" width="320" alt="A split monstera leaf in shades of green, perforated with oval holes and dotted with small round pores.">
+</p>
+
 # Stomattice
 
 A distributed rate limiter written in Rust.
@@ -44,8 +48,9 @@ no CLA.
 [`LICENSE-APACHE`](LICENSE-APACHE). Contributions come in under the same terms
 (`inbound = outbound`).
 
-The name and any logo are marks of the copyright holder. Neither license grants
-trademark rights; see [`TRADEMARK.md`](TRADEMARK.md).
+The logo file (`docs/assets/stomattice-logo.svg`) carries that same license; the
+stomattice name and logo **as brand identifiers** are governed separately — see
+[`TRADEMARK.md`](TRADEMARK.md).
 
 Stomattice is a project of the [Infinite Primates](https://github.com/infiniteprimates)
 org. The copyright holder is named in [`AUTHORS.md`](AUTHORS.md).
